@@ -19,6 +19,8 @@ ffprobelist = ['-show_format',
                ]
 ffprobelist = [i + ' -print_format json' for i in ffprobelist]
 cmd['ffprobe'] = ffprobelist
+
+ignoreExtLst = ['.log', '.xxd', '.info', '.nfo']
 # cfg done
 
 
@@ -38,6 +40,7 @@ def loadfilelst(d):
     for root, dirs, files in os.walk(d):
         dirs[:] = [i for i in dirs if not is_folder_to_ignore(i)]
         lst += [os.path.abspath("%s/%s" % (root, f)) for f in files]
+    lst = [f for f in lst if os.path.splitext(f)[1] not in ignoreExtLst]
     return lst
 
 
@@ -91,7 +94,6 @@ def ffprobe(f):
 d = "test"
 lst = loadfilelst(d)
 print(lst)
-exit
 hist = loadHistory(".arman.history")
 print(hist)
 hashTbl = {}

@@ -1,0 +1,32 @@
+= arman =
+
+== What ==
+arman is one tool to index video file meta-data, and search on it.
+
+== Target User ==
+arman is very very niche. If you match these feature, your are the target
+user.
+
+    - work on video codec
+    - have tons of video file to manage
+    - work on them, have to find some specific kinds of stream, such as:
+        - find all 4K H.264 file
+
+If you are video fan, or want search on video content, it is NOT designed for
+this kind user case.
+
+== How ==
+Based on external tools, probe meta-data when add one video to library. Then
+search on them.
+
+== External Tools ==
+
+# md5sum
+# crc32
+# ffprobe
+
+== Inspried ==
+- synstatic
+
+== TODO ==
+- [ ] ffprobe: support num of frames
